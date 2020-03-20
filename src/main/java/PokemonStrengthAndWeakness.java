@@ -1,27 +1,16 @@
-import java.util.ArrayList;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-class PokemonStrengthAndWeakness {
-    private DoubleDamageFrom weaknesses;
-    private DoubleDamageTo strengths;
+public class PokemonStrengthAndWeakness {
+    @SerializedName("damage_relations")
+    @Expose
+    DamageRelations damageRelationsObject;
 
-    public PokemonStrengthAndWeakness(DoubleDamageFrom weaknesses, DoubleDamageTo strengths) {
-        this.weaknesses = weaknesses;
-        this.strengths = strengths;
+    public DamageRelations getDamageRelationsObject() {
+        return damageRelationsObject;
     }
 
-    public DoubleDamageFrom getWeaknesses() {
-        return weaknesses;
-    }
-
-    public void setWeaknesses(DoubleDamageFrom weaknesses) {
-        this.weaknesses = weaknesses;
-    }
-
-    public DoubleDamageTo getStrengths() {
-        return strengths;
-    }
-
-    public void setStrengths(DoubleDamageTo strengths) {
-        this.strengths = strengths;
+    public void setDamageRelationsObject(DamageRelations damageRelationsObject) {
+        this.damageRelationsObject = damageRelationsObject;
     }
 }
