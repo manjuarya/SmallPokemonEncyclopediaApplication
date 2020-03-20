@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class LocationData {
+public class    LocationData {
     private String name;
     ArrayList<Name> names = new ArrayList<>();
     private Region region;
