@@ -1,23 +1,30 @@
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 class DamageRelations {
+    @SerializedName("double_damage_from")
+    @Expose
+    ArrayList<DoubleDamageFrom> doubleDamageFrom = new ArrayList<>();
+    @SerializedName("double_damage_to")
+    @Expose
+    ArrayList<DoubleDamageTo> doubleDamageTo = new ArrayList<>();
 
-    ArrayList<DoubleDamageFrom> double_damage_from = new ArrayList<>();
-    ArrayList<DoubleDamageTo> double_damage_to = new ArrayList<>();
-
-    public ArrayList<DoubleDamageFrom> getDouble_damage_from() {
-        return double_damage_from;
+    public ArrayList<DoubleDamageFrom> getDoubleDamageFrom() {
+        return doubleDamageFrom;
     }
 
-    public void setDouble_damage_from(ArrayList<DoubleDamageFrom> double_damage_from) {
-        this.double_damage_from = double_damage_from;
+    public void setDoubleDamageFrom(ArrayList<DoubleDamageFrom> doubleDamageFrom) {
+        this.doubleDamageFrom = doubleDamageFrom;
     }
 
-    public ArrayList<DoubleDamageTo> getDouble_damage_to() {
-        return double_damage_to;
+    public ArrayList<DoubleDamageTo> getDoubleDamageTo() {
+
+        return doubleDamageTo;
     }
 
-    public void setDouble_damage_to(ArrayList<DoubleDamageTo> double_damage_to) {
-        this.double_damage_to = double_damage_to;
+    public void setDoubleDamageTo(ArrayList<DoubleDamageTo> doubleDamageTo) {
+        this.doubleDamageTo = doubleDamageTo;
     }
 }

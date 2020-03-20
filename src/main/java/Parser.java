@@ -61,25 +61,28 @@ public class Parser {
             String name = perTypes.getType().getName();
             String url = perTypes.getType().getUrl();
             String jsonResponseAboutStrengthAndWeakness = parseData(url);
-            DamageRelations data = gson.fromJson(jsonResponseAboutStrengthAndWeakness, DamageRelations.class);
+           // DamageRelations data = gson.fromJson(jsonResponseAboutStrengthAndWeakness, DamageRelations.class);
+            PokemonStrengthAndWeakness data = gson.fromJson(jsonResponseAboutStrengthAndWeakness, PokemonStrengthAndWeakness.class);
 
-            ArrayList<DoubleDamageTo> strengths = data.getDouble_damage_to();
+            DamageRelations damageRelationsObject = data.getDamageRelationsObject();
+
+            ArrayList<DoubleDamageTo> strengths= damageRelationsObject.getDoubleDamageTo();
             String stringOfStrength = ", Strengths=";
             for(DoubleDamageTo pokemonStrength : strengths){
                 stringOfStrength = stringOfStrength + " " + pokemonStrength.getName();
             }
 
-            ArrayList<DoubleDamageFrom> Weaknesses = data.getDouble_damage_from();
+            ArrayList<DoubleDamageFrom> Weaknesses = damageRelationsObject.getDoubleDamageFrom();
             String stringOfWeakness = ", Weaknesses=";
             for(DoubleDamageFrom pokemonWeakness : Weaknesses){
                 stringOfWeakness = stringOfWeakness + " " + pokemonWeakness.getName();
             }
-            typeDetails = typeDetails + " " + ", type=" + name + stringOfStrength + " " + stringOfWeakness;
+            typeDetails = typeDetails + " " + "type=" + name + stringOfStrength + " " + stringOfWeakness + "\n";
         }
-        System.out.println("name='" + pokemon.getName() + " " +
+        System.out.println(" Pokemon name='" + pokemon.getName() + " " +
                 ", id=" + pokemon.getId() + " " +
                 ", height=" + pokemon.getHeight() + " " +
-                ", weight=" + pokemon.getWeight() + " " +
+                ", weight=" + pokemon.getWeight() + " \n" +
                 typeDetails);
 
     }
